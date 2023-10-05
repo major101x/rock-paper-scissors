@@ -5,6 +5,11 @@ const getComputerChoice = () => {
   return result[random];
 };
 
+// Helper function
+const capitalize = (word) => {
+  return word[0].toUpperCase() + word.slice(1).toLowerCase();
+}
+
 let playerScore = 0;
 let computerScore = 0;
 
@@ -12,8 +17,7 @@ let computerScore = 0;
 const playRound = (playerSelection, computerSelection) => {
   computerSelection = getComputerChoice();
   playerSelection = prompt("Rock, Paper or Scissors?");
-  playerSelection =
-    playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+  capitalize(playerSelection);
   console.log(playerSelection);
   console.log(computerSelection);
 
