@@ -5,7 +5,10 @@ const getComputerChoice = () => {
   return result[random];
 };
 
-// Returns a string showing a win or loss for a round
+let playerScore = 0;
+let computerScore = 0;
+
+// Returns a string showing a win or loss and adds to the winner's score for a round
 const playRound = (playerSelection, computerSelection) => {
   computerSelection = getComputerChoice();
   console.log(playerSelection);
@@ -16,18 +19,23 @@ const playRound = (playerSelection, computerSelection) => {
     alert("Invalid Selection!!!");
   } else if (playerSelection === computerSelection) {
     return `It's a draw!!! ${playerSelection} ties with ${computerSelection}`;
-  } else if (playerSelection === "scissors" && computerSelection === "paper") {
+  } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
+    playerScore++;
     return `You Win!!! ${playerSelection} beats ${computerSelection}`;
-  } else if (playerSelection === "paper" && computerSelection === "rock") {
+  } else if (playerSelection === "Paper" && computerSelection === "Rock") {
+    playerScore++;
     return `You Win!!! ${playerSelection} beats ${computerSelection}`;
-  } else if (playerSelection === "rock" && computerSelection === "scissors") {
+  } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
+    playerScore++;
     return `You Win!!! ${playerSelection} beats ${computerSelection}`;
   } else {
+    computerScore++;
     return `You Lose!!! ${computerSelection} beats ${playerSelection}`;
   }
 };
 
 let playerSelection = prompt("Rock, Paper or Scissors?");
-playerSelection = playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+playerSelection =
+  playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
