@@ -11,6 +11,9 @@ let computerScore = 0;
 // Returns a string showing a win or loss and adds to the winner's score for a round
 const playRound = (playerSelection, computerSelection) => {
   computerSelection = getComputerChoice();
+  playerSelection = prompt("Rock, Paper or Scissors?");
+  playerSelection =
+    playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
   console.log(playerSelection);
   console.log(computerSelection);
 
@@ -34,8 +37,6 @@ const playRound = (playerSelection, computerSelection) => {
   }
 };
 
-let playerSelection = prompt("Rock, Paper or Scissors?");
-playerSelection =
-  playerSelection[0].toUpperCase() + playerSelection.slice(1).toLowerCase();
+let playerSelection;
 const computerSelection = getComputerChoice();
 console.log(playRound(playerSelection, computerSelection));
