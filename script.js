@@ -8,7 +8,7 @@ const getComputerChoice = () => {
 // Helper function
 const capitalize = (word) => {
   return word[0].toUpperCase() + word.slice(1).toLowerCase();
-}
+};
 
 let playerScore = 0;
 let computerScore = 0;
@@ -17,7 +17,7 @@ let computerScore = 0;
 const playRound = (playerSelection, computerSelection) => {
   computerSelection = getComputerChoice();
   playerSelection = prompt("Rock, Paper or Scissors?");
-  capitalize(playerSelection);
+  playerSelection = capitalize(playerSelection);
   console.log(playerSelection);
   console.log(computerSelection);
 
@@ -38,5 +38,19 @@ const playRound = (playerSelection, computerSelection) => {
   } else {
     computerScore++;
     return `You Lose!!! ${computerSelection} beats ${playerSelection}`;
+  }
+};
+
+// Keep scores and returns winner of 5 rounds
+const game = () => {
+  for (let i = 1; i <= 5; i++) {
+    console.log(playRound());
+    console.log(`Player Score: ${playerScore}`);
+    console.log(`Computer Score: ${computerScore}`);
+  }
+  if (computerScore > playerScore) {
+    return "Game Over!!!";
+  } else {
+    return "Victory is yours!!!";
   }
 };
