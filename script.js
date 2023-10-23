@@ -3,6 +3,8 @@ const result = document.querySelector(".result");
 const finalResult = document.querySelector(".final-result");
 const playerScoreCount = document.querySelector(".player-score");
 const computerScoreCount = document.querySelector(".computer-score");
+const playerChoice = document.querySelector(".player-choice");
+const computerChoice = document.querySelector(".computer-choice");
 
 btn.forEach((btn) => {
   btn.addEventListener("click", (event) => {
@@ -32,37 +34,51 @@ computerScoreCount.textContent = computerScore;
 // Returns a string showing a win or loss and adds to the winner's score for a round
 const playRound = (playerSelection, computerSelection) => {
   computerSelection = getComputerChoice();
-  // playerSelection = prompt("Rock, Paper or Scissors?");
-  // playerSelection = capitalize(playerSelection);
-  console.log(playerSelection);
-  console.log(computerSelection);
 
   //Logic to calculate the winner
   if (playerSelection === "" || playerSelection === undefined) {
     alert("Invalid Selection!!!");
   } else if (playerSelection === computerSelection) {
+    playerChoice.textContent = playerSelection;
+    computerChoice.textContent = computerSelection;
     result.textContent = `It's a draw!!! ${playerSelection} ties with ${computerSelection}`;
   } else if (playerSelection === "Scissors" && computerSelection === "Paper") {
     playerScore++;
+    playerChoice.textContent = playerSelection;
+    computerChoice.textContent = computerSelection;
     result.textContent = `You Win!!! ${playerSelection} beats ${computerSelection}`;
   } else if (playerSelection === "Paper" && computerSelection === "Rock") {
     playerScore++;
+    playerChoice.textContent = playerSelection;
+    computerChoice.textContent = computerSelection;
     result.textContent = `You Win!!! ${playerSelection} beats ${computerSelection}`;
   } else if (playerSelection === "Rock" && computerSelection === "Scissors") {
     playerScore++;
+    playerChoice.textContent = playerSelection;
+    computerChoice.textContent = computerSelection;
     result.textContent = `You Win!!! ${playerSelection} beats ${computerSelection}`;
   } else {
     computerScore++;
+    playerChoice.textContent = playerSelection;
+    computerChoice.textContent = computerSelection;
     result.textContent = `You Lose!!! ${computerSelection} beats ${playerSelection}`;
   }
   gameWinner();
+};
+
+const disableBtn = () => {
+  btn.forEach((btn) => {
+    btn.disabled = true;
+  });
 };
 
 // Returns winner of 5 rounds
 const gameWinner = () => {
   if (computerScore === 5) {
     finalResult.textContent = "You Lose! Game Over!!!";
+    disableBtn();
   } else if (playerScore === 5) {
     finalResult.textContent = "You Win! Victory is yours!!!";
+    disableBtn();
   }
 };
