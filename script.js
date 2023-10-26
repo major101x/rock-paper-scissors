@@ -8,9 +8,10 @@ const computerChoice = document.querySelector(".computer-choice");
 
 btn.forEach((btn) => {
   btn.addEventListener("click", (event) => {
-    playRound(event.target.textContent, getComputerChoice);
+    playRound(event.currentTarget.id, getComputerChoice);
     playerScoreCount.textContent = playerScore;
     computerScoreCount.textContent = computerScore;
+    console.log(event.currentTarget.id);
   });
 });
 
