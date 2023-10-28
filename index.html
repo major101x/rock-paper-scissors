@@ -17,7 +17,9 @@
     </div>
     <div class="content">
       <div class="options">
-        <button class="btn" id="Rock"><img src="./images/rock.png" alt="Rock" /></button>
+        <button class="btn" id="Rock">
+          <img src="./images/rock.png" alt="Rock" />
+        </button>
         <button class="btn" id="Paper">
           <img src="./images/paper.png" alt="Rock" />
         </button>
@@ -25,18 +27,26 @@
           <img src="./images/scissors.png" alt="Rock" />
         </button>
       </div>
-      <div class="choice">
-        player Chose: <span class="player-choice"></span>
+      <div class="choices">
+        <div class="choice">
+          player Chose: <br /><span class="player-choice"></span>
+        </div>
+        <div class="choice">
+          Computer Chose: <br /><span class="computer-choice"></span>
+        </div>
       </div>
-      <div class="choice">
-        Computer Chose: <span class="computer-choice"></span>
+      <div class="scores">
+        <div class="scorebox">
+          Player Score <br /><span class="score player-score"></span>
+        </div>
+        <div class="scorebox">
+          Computer Score <br /><span class="score computer-score"></span>
+        </div>
       </div>
-      <div class="scorebox">Player Score</div>
-      <div class="score player-score"></div>
-      <div class="scorebox">Computer Score</div>
-      <div class="score computer-score"></div>
-      <div class="result"></div>
-      <div class="final-result"></div>
+      <div class="results">
+        <div class="result"></div>
+        <div class="final-result"></div>
+      </div>
     </div>
     <script src="./script.js"></script>
   </body>
