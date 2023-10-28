@@ -76,10 +76,10 @@ const disableBtn = () => {
 // Returns winner of 5 rounds
 const gameWinner = () => {
   if (computerScore === 5) {
-    finalResult.textContent = "You Lose! Game Over!!!";
+    finalResult.textContent = "Game Over!!!";
     disableBtn();
   } else if (playerScore === 5) {
-    finalResult.textContent = "You Win! Victory is yours!!!";
+    finalResult.textContent = "You Won five rounds! Victory is yours!!!";
     disableBtn();
   }
 };
